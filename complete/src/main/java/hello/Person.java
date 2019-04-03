@@ -19,7 +19,6 @@ public class Person {
 	@ManyToOne
     private Country country;
 
-
 	public String getFirstName() {
 		return firstName;
 	}

@@ -22,8 +22,8 @@ public class DataLoader implements ApplicationRunner {
         countryRepository.save(france);
         countryRepository.save(germany);
 
-        Application.log.warn("inserted france with id " + france.getId());
-        Application.log.warn("inserted germany with id " + germany.getId());
+        Application.log.warn("inserted France with id " + france.getId());
+        Application.log.warn("inserted Germany with id " + germany.getId());
     }
 
 }
