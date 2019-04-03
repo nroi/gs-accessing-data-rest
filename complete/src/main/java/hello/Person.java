@@ -43,4 +43,8 @@ public class Person {
 	public void setCountry(final Country country) {
 		this.country = country;
 	}
+
+	public long getId() {
+		return id;
+	}
 }

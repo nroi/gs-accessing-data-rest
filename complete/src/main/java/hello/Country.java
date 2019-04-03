@@ -20,6 +20,9 @@ public class Country {
         this.description = description;
     }
 
+    // default constructor required by boot.
+    protected Country() {}
+
     public String getCountryCodeIso() {
         return countryCodeIso;
     }
