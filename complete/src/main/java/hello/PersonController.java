@@ -17,14 +17,31 @@ public class PersonController {
         this.personRepository = personRepository;
     }
 
-    @PostMapping("/person")
-    public Person createPerson(@RequestBody Person person) {
-        Person savedPerson = personRepository.save(person);
-        return savedPerson;
-    }
-
     @GetMapping("/person/{personId}")
     public Person getPerson(@PathVariable long personId) {
         return personRepository.findById(personId).get();
     }
+
+    /*
+     * Example usage: curl -i -X POST -H "Content-Type:application/json" -d '{"firstName": "Frodo", "lastName": "Baggins", "country": {"id": 1}}' http://localhost:8080/person_return
+     */
+
+    @PostMapping("/person_return")
+    public Person personReturn(@RequestBody Person person) {
+        return person;
+    }
+
+    @PostMapping("/person_save_and_return")
+    public Person personSaveAndReturn(@RequestBody Person person) {
+        Person savedPerson = personRepository.save(person);
+        return savedPerson;
+    }
+
+    @PostMapping("/person_save_and_return_by_id")
+    public Person personSaveAndReturnById(@RequestBody Person person) {
+        Person savedPerson = personRepository.save(person);
+        Person samePerson = personRepository.findById(savedPerson.getId()).get();
+        return samePerson;
+    }
+
 }
